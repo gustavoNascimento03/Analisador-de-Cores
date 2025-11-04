@@ -1,16 +1,17 @@
 import styles from "./styles.module.css";
 
-export function ManualColorPicker() {
+export function ManualColorPicker({ value, onColorChange }) {
     return (
-        <div className={styles.pickerContainer}>
+        <div className={styles.container}>
             <label htmlFor="colorPicker" className={styles.label}>
                 Selecione uma cor manualmente:
             </label>
             <input
                 type="color"
                 id="colorPicker"
-                value="#0053a1ff"
                 className={styles.colorInput}
+                value={value}
+                onChange={(e) => onColorChange(e.target.value)}
             />
         </div>
     );
