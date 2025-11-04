@@ -66,17 +66,22 @@ export function ImageUploader({ onColorSelect, showToast }) {
     };
 
     return (
-        <div className={styles.uploaderContainer}>
-            {/* ... (o resto do seu JSX) ... */}
-
+        <div className={styles.container}>
+            <p className={styles.prompt}>Comece enviando uma imagem</p>{" "}
+            <label htmlFor="fileInput" className={styles.uploadButton}>
+                <img className={styles.img} src="/upload.svg" alt="Imagem de upload"></img>
+                <span>Enviar Imagem</span>{" "}
+            </label>{" "}
             <input
                 type="file"
                 id="fileInput"
                 className={styles.hiddenInput}
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={handleImageUpload}
-            />
-
+            />{" "}
+            <p className={styles.hint}>
+                Extraia a paleta de cores de uma foto.
+            </p>
             {imagePreview && (
                 <img
                     src={imagePreview}
@@ -84,17 +89,16 @@ export function ImageUploader({ onColorSelect, showToast }) {
                     className={styles.imagePreview}
                 />
             )}
-
             <Palette
                 title="Paleta da Imagem"
                 colors={mainPalette}
                 onColorClick={handleSwatchClick}
-            />
+            />{" "}
             <Palette
                 title="Cores Complementares"
                 colors={complementaryPalette}
                 onColorClick={handleSwatchClick}
-            />
+            />{" "}
         </div>
     );
 }

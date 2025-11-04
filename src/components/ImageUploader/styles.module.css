@@ -70,3 +70,8 @@
     flex-direction: column;
     gap: 1.5rem;
 }
+
+.img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
